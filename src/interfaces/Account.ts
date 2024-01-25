@@ -1,3 +1,4 @@
-export interface Account {
-
+export interface IAccountLogin {
+    username: string,
+    password: string
 }

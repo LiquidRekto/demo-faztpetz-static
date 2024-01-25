@@ -1,3 +1,3 @@
-class CommonUtils {
+export class CommonUtils {
     
 }

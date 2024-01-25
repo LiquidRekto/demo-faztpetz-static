@@ -1,3 +1,11 @@
 {
-    
+    "common": {
+        "login": "đăng nhập",
+        "logout": "đăng xuất",
+        "delete": "xoá",
+        "cancel": "huỷ",
+        "navbar": {
+            
+        }
+    }
 }
