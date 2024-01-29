@@ -3,6 +3,7 @@ import { API_R_200 } from '@/constants/codes';
 import type { IAccountLogin } from '@/interfaces/Account';
 import router from '@/router';
 import { AuthService } from '@/services/auth.service';
+import { TestService } from '@/services/test.service';
 import { StorageUtils } from '@/utils/storage.utils';
 import type { AxiosResponse } from 'axios';
 import { ref } from 'vue'
@@ -12,17 +13,23 @@ const { t } = useI18n()
 let username = ref<string>('')
 let password = ref<string>('')
 
+//const lmao = (await TestService.testGet()) as AxiosResponse
+//console.log(lmao)
+
+const error = ref(false)
+
 const onLoginSubmit = async () => {
 
     const payload = {
-        username: username.value,
+        email: username.value,
         password: password.value
     } as IAccountLogin
-
+    console.log(payload)
     let response = ( await AuthService.login(payload)) as AxiosResponse
+    console.log(response)
 
     if (response.status != API_R_200) {
-
+        error.value = true
     }
 
     if (response.status == API_R_200) {
@@ -36,6 +43,9 @@ const onLoginSubmit = async () => {
 <template>
     <v-container fluid>
         <v-row class=" d-flex flex-column align-center text-center justify-center">
+            <label v-if="error" class="text-red">
+                Invalid username or password
+            </label>
             <v-card class="pa-4" width="400">
             <p class="text-h4">{{ $t('common.login') }}</p>
             <label>Tên đăng nhập</label>

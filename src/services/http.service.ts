@@ -1,3 +1,4 @@
+import { StorageUtils } from '@/utils/storage.utils'
 import axios, { type AxiosInstance } from 'axios'
 
 export class Http {
@@ -14,14 +15,13 @@ export class Http {
   init() {
     this.instance.interceptors.request.use(
       (request) => {
-        /*
         if (this.isAuth) {
           const tokenInfoStr = StorageUtils.getItem('tokenInfo')
           const tokenInfo = JSON.parse(tokenInfoStr)
           request.headers.authorization = tokenInfo.accessToken
           request.headers['Content-Type'] = this.contentType
         }
-        */
+        
         return request
       },
       (error) => {
@@ -33,7 +33,7 @@ export class Http {
         return response
       },
       (error) => {
-        console.log(error)
+        return Promise.reject(error)
       }
     )
     return this.instance

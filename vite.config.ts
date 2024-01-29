@@ -15,14 +15,15 @@ export default defineConfig({
   },
   envPrefix: 'APP_',
   server: {
-    /*
+    
     proxy: {
-      '/prod': {
-        target: 'lmao.com',
+      '/api': {
+        target: 'http://localhost:8080/fptutor',
         changeOrigin: true,
+        secure: false,
       }
     }
-    */
+    
   },
   build: {
     chunkSizeWarningLimit:  500
