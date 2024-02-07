@@ -7,7 +7,7 @@ export class AuthService extends BaseService {
     static async login(data: IAccountLogin) {
         try {
             const response = await this.request({ auth: false }).post(
-              API_ACCOUNT_LOG_IN,
+              API_ENV.MAIN + API_ACCOUNT_LOG_IN,
               data
             )
             console.log(response)

@@ -2,10 +2,44 @@
     "common": {
         "login": "đăng nhập",
         "logout": "đăng xuất",
+        "register": "đăng ký",
         "delete": "xoá",
         "cancel": "huỷ",
+        "email": "email",
+        "hotline": "hotline",
+        "registerNow": "đăng ký ngay",
+        "contactInfo": "thông tin liên hệ",
         "navbar": {
+            "home": "trang chủ",
+            "tutor": "gia sư",
+            "learner": "sinh viên",
+            "support": "tư vấn"
+        },
+        "error": {
             
+        }
+    },
+    "authView": {
+        "login": {
+            "error": {
+                "incorrectUserOrPwd": "tên đăng nhập hoặc mật khẩu không đúng"
+            },
+            "username": "tên đăng nhập",
+            "password": "mật khẩu"
+        },
+        "register": {
+            "common": {
+                "fullName": "họ và tên",
+                "gender": "giới tính",
+                "yob": "năm sinh",
+                "major": "ngành học"
+            },
+            "tutor": {
+                "govIdNumber": "CMT/CCCD"
+            },
+            "learner": {
+
+            }
         }
     }
 }

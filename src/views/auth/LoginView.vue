@@ -21,7 +21,7 @@ const error = ref(false)
 const onLoginSubmit = async () => {
 
     const payload = {
-        email: username.value,
+        username: username.value,
         password: password.value
     } as IAccountLogin
     console.log(payload)
@@ -33,7 +33,7 @@ const onLoginSubmit = async () => {
     }
 
     if (response.status == API_R_200) {
-        StorageUtils.setItem('tokenInfo', JSON.stringify(response!.data))
+        StorageUtils.setItem('tokenInfo', JSON.stringify(response!.data.data))
         router.push({
             name: 'home'
          })
@@ -47,12 +47,12 @@ const onLoginSubmit = async () => {
                 Invalid username or password
             </label>
             <v-card class="pa-4" width="400">
-            <p class="text-h4">{{ $t('common.login') }}</p>
-            <label>Tên đăng nhập</label>
+            <p class="text-h4">{{ t('common.login') }}</p>
+            <label>{{ t('authView.login.username') }}</label>
             <v-text-field v-model="username" density="compact">
 
             </v-text-field>
-            <label>Mật khẩu</label>
+            <label>{{ t('authView.login.password') }}</label>
             <v-text-field v-model="password" density="compact">
                 
             </v-text-field>
@@ -63,7 +63,7 @@ const onLoginSubmit = async () => {
             block
             dark
             @click="onLoginSubmit"
-            >{{ $t('common.login') }}</v-btn
+            >{{ t('common.login') }}</v-btn
           >
 
         </v-card>

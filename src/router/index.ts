@@ -4,13 +4,14 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { authGuard } from './auth.guard'
 import HomeView from '@/views/main/HomeView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import MainLayout from '@/layouts/MainLayout.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/auth',
-            component: AuthLayout,
+            component: MainLayout,
             children: [
                 {
                     path: 'login',
@@ -21,7 +22,7 @@ const router = createRouter({
         },
         {
             path: '',
-            beforeEnter: authGuard,
+            //beforeEnter: authGuard,
             redirect: 'home',
             children: [
                 {

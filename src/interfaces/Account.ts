@@ -1,13 +1,27 @@
 export interface IAccountLogin {
-    email: string,
+    username: string,
     password: string
 }
 
 export interface IAccountGender {
+    id: number,
+    name: string
+}
+
+export interface IAccountRole {
 
 }
 
 export interface IAccount {
-    username: string,
-    password: string
+    id: number,
+    userName: string,
+    email: string,
+    phone: string,
+    firstName: string,
+    lastName: string,
+    roles: Array<IAccountRole>
+}
+
+export interface ITokenInfo {
+    accessToken: string
 }

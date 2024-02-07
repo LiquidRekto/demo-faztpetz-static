@@ -13,6 +13,7 @@ import * as directives from 'vuetify/directives'
 //
 
 // FontAwesome imports
+import { aliases, fa } from 'vuetify/iconsets/fa-svg'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
@@ -28,11 +29,55 @@ import VI from './translations/vi.json'
 
 import App from './App.vue'
 import { GeolocationUtils } from './utils/geolocation.utils'
+import { StorageUtils } from './utils/storage.utils'
 
 const app = createApp(App)
 
+// Add theme
+// initialize theme
+const fpTutorTheme = {
+  dark: false,
+  colors: {
+    background: '#FFFFFF',
+    surface: '#FFFFFF',
+    'surface-2': '#AAAAAA',
+    primary: '#FF00FF',
+    'primary-darken-1': '#FF00FF',
+    anchor: '#000000',
+    secondary: '#000000',
+    'secondary-darken-1': '#000000',
+    error: 'AA0000',
+    info: '#2222FF',
+    success: '#00AA00',
+    warning: '#AAAA00'
+  }
+}
+
+
 // Add vuetify
 const vuetify = createVuetify({
+  theme: {
+    defaultTheme: 'fpTutorTheme',
+    themes: {
+      fpTutorTheme
+    }
+  },
+  defaults: {
+    VTextField: {
+      variant: 'outlined',
+      density: 'compact',
+      'center-affix': true
+    },
+
+  },
+  icons: {
+    defaultSet: 'fa',
+    aliases,
+    sets: {
+      fa
+    }
+  },
+
     components: components,
     directives: directives
 })
@@ -47,8 +92,10 @@ const messages = {
   VI: VI
 }
 
+let locale = StorageUtils.getItem("locale") ? StorageUtils.getItem("locale") : GeolocationUtils.getSuitableDisplayLocale(messages)
+
 const i18n = createI18n({
-    locale: GeolocationUtils.getSuitableDisplayLocale(messages),
+    locale: locale,
     legacy: false,
     messages: messages,
     missing: (text: Locale, key: Path) => {
