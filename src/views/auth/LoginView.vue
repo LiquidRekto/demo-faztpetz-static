@@ -5,6 +5,7 @@ import router from '@/router';
 import { AuthService } from '@/services/auth.service';
 import { TestService } from '@/services/test.service';
 import { StorageUtils } from '@/utils/storage.utils';
+import ParagraphText from '@/components/text/ParagraphText.vue'
 import type { AxiosResponse } from 'axios';
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -25,7 +26,7 @@ const onLoginSubmit = async () => {
         password: password.value
     } as IAccountLogin
     console.log(payload)
-    let response = ( await AuthService.login(payload)) as AxiosResponse
+    let response = (await AuthService.login(payload)) as AxiosResponse
     console.log(response)
 
     if (response.status != API_R_200) {
@@ -36,39 +37,43 @@ const onLoginSubmit = async () => {
         StorageUtils.setItem('tokenInfo', JSON.stringify(response!.data.data))
         router.push({
             name: 'home'
-         })
+        })
     }
 }
 </script>
 <template>
     <v-container fluid>
-        <v-row class=" d-flex flex-column align-center text-center justify-center">
-            <label v-if="error" class="text-red">
-                Invalid username or password
-            </label>
-            <v-card class="pa-4" width="400">
-            <p class="text-h4">{{ t('common.login') }}</p>
-            <label>{{ t('authView.login.username') }}</label>
-            <v-text-field v-model="username" density="compact">
+        <v-row class="py-4 d-flex flex-column align-center text-center justify-center">
+            <ParagraphText v-if="error" class="text-red">
+                {{ t('authView.login.error.incorrectUserOrPwd') }}
+            </ParagraphText>
+            <v-col sm="6" md="4" cols="12">
+                <v-card class="pa-4">
+                    <v-form>
+                        <p class="text-h4"><b>
+                                <ParagraphText>{{ t('common.login') }}</ParagraphText>
+                            </b></p>
+                        <ParagraphText>
+                            {{ t('authView.login.username') }}
+                        </ParagraphText>
+                        <v-text-field v-model="username" density="compact">
 
-            </v-text-field>
-            <label>{{ t('authView.login.password') }}</label>
-            <v-text-field v-model="password" density="compact">
-                
-            </v-text-field>
-            <v-btn
-            color="primary-darken-1"
-            class="densed-btn"
-            x-large
-            block
-            dark
-            @click="onLoginSubmit"
-            >{{ t('common.login') }}</v-btn
-          >
+                        </v-text-field>
+                        <ParagraphText>
+                            {{ t('authView.login.password') }}
+                        </ParagraphText>
+                        <v-text-field type="password" v-model="password" density="compact">
 
-        </v-card>
+                        </v-text-field>
+                        <v-btn color="primary-darken-1" class="densed-btn" x-large block dark @click="onLoginSubmit">{{
+                            t('common.login') }}</v-btn>
+
+                    </v-form>
+
+                </v-card>
+            </v-col>
+
         </v-row>
-        
+
     </v-container>
-    
 </template>

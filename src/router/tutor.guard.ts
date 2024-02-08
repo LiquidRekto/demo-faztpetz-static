@@ -2,19 +2,15 @@ import { StorageUtils } from '@/utils/storage.utils'
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
 import router from '.'
 
-const adminGuard = (
+const tutorGuard = (
   to: RouteLocationNormalized,
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ) => {
-  const tokenInfo = StorageUtils.getItem('tokenInfo')
-  if (!tokenInfo) {
-    router.push({
-      name: 'login'
-    })
-    return;
-  }
+  console.log(to)
+  console.log(from)
+  
   next()
 }
 
-export { adminGuard }
+export { tutorGuard }

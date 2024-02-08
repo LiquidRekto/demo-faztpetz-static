@@ -7,8 +7,6 @@ const authGuard = (
   from: RouteLocationNormalized,
   next: NavigationGuardNext
 ) => {
-  console.log(to)
-  console.log(from)
   const tokenInfo = StorageUtils.getItem('tokenInfo')
   if (!tokenInfo) {
     router.push({

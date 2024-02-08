@@ -3,12 +3,31 @@
         "login": "đăng nhập",
         "logout": "đăng xuất",
         "register": "đăng ký",
+        "registerBtn": {
+            "learner": "đăng ký học viên",
+            "tutor": "đăng ký gia sư"
+        },
         "delete": "xoá",
         "cancel": "huỷ",
         "email": "email",
         "hotline": "hotline",
         "registerNow": "đăng ký ngay",
+        "registerAccount": "đăng ký tài khoản",
         "contactInfo": "thông tin liên hệ",
+        "inputPlaceholder": {
+            "chooseGender": "chọn giới tính"
+        },
+        "gender": {
+            "male": "nam",
+            "female": "nữ",
+            "other": "khác"
+        },
+        "formInputs": {
+            "fullName": "họ và tên",
+            "gender": "giới tính",
+            "dob": "ngày, tháng, năm sinh",
+            "major": "ngành học"
+        },
         "navbar": {
             "home": "trang chủ",
             "tutor": "gia sư",
@@ -16,7 +35,7 @@
             "support": "tư vấn"
         },
         "error": {
-            
+            "unexpected": "có lỗi không xác định xảy ra"
         }
     },
     "authView": {
@@ -28,18 +47,22 @@
             "password": "mật khẩu"
         },
         "register": {
-            "common": {
-                "fullName": "họ và tên",
-                "gender": "giới tính",
-                "yob": "năm sinh",
-                "major": "ngành học"
-            },
             "tutor": {
                 "govIdNumber": "CMT/CCCD"
             },
             "learner": {
 
             }
+        },
+        "requestClass": {
+            "common": {
+                "title": "gửi yêu cầu nhận lớp"
+            },
+            "tutor": {},
+            "learner": {}
+        },
+        "requestNewSubject": {
+            "title": "gửi yêu cầu dạy thêm môn học"
         }
     }
 }

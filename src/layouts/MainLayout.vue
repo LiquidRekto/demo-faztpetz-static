@@ -1,55 +1,90 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
+import ParagraphText from '@/components/text/ParagraphText.vue'
+import UppercaseText from '@/components/text/UppercaseText.vue'
 
 const { t } = useI18n()
+
+const items = [
+    { title: t('common.registerBtn.learner'), link: 'register-learner', icon: "fa-user-graduate"},
+    { title: t('common.registerBtn.tutor'), link: 'register-tutor', icon: "fa-chalkboard-user" },
+]
 </script>
 <template>
-    <v-container fluid>
-        <v-row>
-            <v-col sm="12" md="6" cols="12"></v-col>
-            <v-col sm="12" md="6" cols="12">
-                <v-list-item link
-                    prepend-icon="user-plus">
-                    <v-list-item-title>
-                        {{ t('common.email') }}
-                    </v-list-item-title>
-                </v-list-item>
-                <v-list-item link
-                    prepend-icon="phone">
-                    <v-list-item-title>
-                        {{ t('common.hotline') }}
-                    </v-list-item-title>
-                </v-list-item>
+    <v-container style="min-height: 100vh" fluid class="d-flex flex-column pa-0">
+        <header>
+            <v-row class="pa-4 bg-yellow justify-space-between">
+                <v-col sm="12" md="4" lg="2" cols="12"></v-col>
+                <v-col sm="12" md="4" lg="2" cols="12">
+                    <v-menu open-on-hover>
+                        <template v-slot:activator="{ props }">
+                            <v-list-item v-bind="props" link prepend-icon="user-plus">
+                                <v-list-item-title>
+                                    <ParagraphText>
+                                        {{ t('common.register') }}
+                                    </ParagraphText>
+                                </v-list-item-title>
+                            </v-list-item>
+                        </template>
+                        <v-list>
+                            <v-list-item :prepend-icon="item.icon" link :to="'/' + item.link" v-for="(item, index) in items" :key="index" :value="index">
+                                <v-list-item-title><ParagraphText>{{ item.title }}</ParagraphText></v-list-item-title>
+                            </v-list-item>
+                        </v-list>
 
-            </v-col>
-        </v-row>
+                    </v-menu>
+
+                    <v-list-item link prepend-icon="phone">
+                        <v-list-item-title>
+                            <ParagraphText>
+                                {{ t('common.hotline') }}
+                            </ParagraphText>
+                        </v-list-item-title>
+                    </v-list-item>
+
+                </v-col>
+            </v-row>
+        </header>
+
         <!-- Header -->
         <v-row>
-            <RouterView>
+            <v-col cols="12">
+                <RouterView>
 
-            </RouterView>
+                </RouterView>
+            </v-col>
+
         </v-row>
         <!-- Footer -->
+        <footer>
+            <v-row class="pa-4 mt-4 bg-orange justify-space-between">
+                <v-col sm="12" md="4" lg="2" cols="12">
 
-        <v-row class="pa-4 mt-4 bg-orange">
-            <v-col sm="12" md="6" cols="12">
+                </v-col>
+                <v-col sm="12" md="4" lg="2" cols="12">
+                    <ParagraphText>{{ t('common.contactInfo') }}</ParagraphText>
+                    <v-list-item link prepend-icon="envelope">
+                        <v-list-item-title>
+                            <ParagraphText>
+                                {{ t('common.email') }}
+                            </ParagraphText>
+                        </v-list-item-title>
+                    </v-list-item>
+                    <v-list-item link prepend-icon="phone">
+                        <v-list-item-title>
+                            <ParagraphText>
+                                {{ t('common.hotline') }}
+                            </ParagraphText>
+                        </v-list-item-title>
+                    </v-list-item>
+                </v-col>
+            </v-row>
+        </footer>
 
-            </v-col>
-            <v-col sm="12" md="6" cols="12">
-                <label>{{ t('common.contactInfo') }}</label>
-                <v-list-item link
-                    prepend-icon="user-plus">
-                    <v-list-item-title>
-                        {{ t('common.email') }}
-                    </v-list-item-title>
-                </v-list-item>
-                <v-list-item link
-                    prepend-icon="phone">
-                    <v-list-item-title>
-                        {{ t('common.hotline') }}
-                    </v-list-item-title>
-                </v-list-item>
-            </v-col>
-        </v-row>
     </v-container>
 </template>
+<style scoped>
+footer {
+    bottom: 0;
+}
+</style>

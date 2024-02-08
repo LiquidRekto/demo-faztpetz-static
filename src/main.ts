@@ -68,6 +68,11 @@ const vuetify = createVuetify({
       density: 'compact',
       'center-affix': true
     },
+    VSelect: {
+      variant: 'outlined',
+      density: 'compact',
+      'center-affix': true
+    }
 
   },
   icons: {

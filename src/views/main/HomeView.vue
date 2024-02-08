@@ -17,22 +17,29 @@ let onLoginClick = () => {
 }
 </script>
 <template>
-    <div>
-        <div v-if="currentUser">
-            <label>
-                Welcome, {{ currentUser }}!
-            </label>
-            <v-btn @click="onLogoutClick">
-                Test Logout
-            </v-btn>
-        </div>
-        <div v-else>
-            <label>
-                No user logged in!
-            </label>
-            <v-btn @click="onLoginClick">
-                Test Login
-            </v-btn>
-        </div>
-    </div>
+    <v-container fluid>
+        <v-row>
+            <v-col cols="12">
+                <div>
+                    <div v-if="currentUser">
+                        <label>
+                            Welcome, {{ currentUser }}!
+                        </label>
+                        <v-btn @click="onLogoutClick">
+                            Test Logout
+                        </v-btn>
+                    </div>
+                    <div v-else>
+                        <label>
+                            No user logged in!
+                        </label>
+                        <v-btn @click="onLoginClick">
+                            Test Login
+                        </v-btn>
+                    </div>
+                </div>
+            </v-col>
+
+        </v-row>
+    </v-container>
 </template>

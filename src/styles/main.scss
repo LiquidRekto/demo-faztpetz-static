@@ -1,3 +1,12 @@
-html {
-    margin: 0px;
-}
+@use 'vuetify' with (
+  $body-font-family: 'Roboto',
+  $heading-font-family: 'Roboto',
+);
+@import "https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i";
+
+:root {
+    --dp-font-family: 'Roboto'
+  }
+  
+  
+
