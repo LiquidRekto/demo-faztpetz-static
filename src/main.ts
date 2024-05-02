@@ -72,6 +72,16 @@ const vuetify = createVuetify({
       variant: 'outlined',
       density: 'compact',
       'center-affix': true
+    },
+    VMenu: {
+      variant: 'outlined',
+      density: 'compact',
+      'center-affix': true
+    },
+    VAutocomplete: {
+      variant: 'outlined',
+      density: 'compact',
+      'center-affix': true
     }
 
   },

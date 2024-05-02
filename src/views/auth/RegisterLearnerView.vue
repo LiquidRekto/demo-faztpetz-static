@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ParagraphText from '@/components/text/ParagraphText.vue';
 import UppercaseText from '@/components/text/UppercaseText.vue';
+import DatePicker from '@/components/DatePicker.vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n()
@@ -29,7 +30,7 @@ const { t } = useI18n()
                     {{ t('common.formInputs.gender') }}
                 </ParagraphText>
                 <v-select :placeholder="`${t('common.inputPlaceholder.chooseGender')}...`"
-                    :items="[t('common.gender.male'), t('common.gender.female'),t('common.gender.other')]"></v-select>
+                    :items="[t('common.gender.male'), t('common.gender.female'), t('common.gender.other')]"></v-select>
             </v-col>
         </v-row>
         <v-row>
@@ -37,15 +38,22 @@ const { t } = useI18n()
                 <ParagraphText class="text-h6">
                     {{ t('common.formInputs.dob') }}
                 </ParagraphText>
-                <v-text-field>
-                </v-text-field>
+                <DatePicker>
+
+                </DatePicker>
             </v-col>
             <v-col sm="12" md="6" cols="12">
                 <ParagraphText class="text-h6">
                     {{ t('common.formInputs.major') }}
                 </ParagraphText>
-                <v-text-field>
-                </v-text-field>
+                <v-autocomplete></v-autocomplete>
+            </v-col>
+        </v-row>
+        <v-row class="justify-center align-center text-center">
+            <v-col cols="12">
+                <v-btn>
+                    {{ t('common.registerNow') }}
+                </v-btn>
             </v-col>
         </v-row>
 

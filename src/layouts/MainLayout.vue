@@ -6,7 +6,7 @@ import UppercaseText from '@/components/text/UppercaseText.vue'
 const { t } = useI18n()
 
 const items = [
-    { title: t('common.registerBtn.learner'), link: 'register-learner', icon: "fa-user-graduate"},
+    { title: t('common.registerBtn.learner'), link: 'register-learner', icon: "fa-user-graduate" },
     { title: t('common.registerBtn.tutor'), link: 'register-tutor', icon: "fa-chalkboard-user" },
 ]
 </script>
@@ -14,9 +14,11 @@ const items = [
     <v-container style="min-height: 100vh" fluid class="d-flex flex-column pa-0">
         <header>
             <v-row class="pa-4 bg-yellow justify-space-between">
-                <v-col sm="12" md="4" lg="2" cols="12"></v-col>
+                <v-col class="d-flex align-center justify-center" sm="12" md="4" lg="2" cols="12">
+                    <img width="150" src="@/assets/images/logotest.png"/>
+                </v-col>
                 <v-col sm="12" md="4" lg="2" cols="12">
-                    <v-menu open-on-hover>
+                    <v-menu open-on-hover open-on-click>
                         <template v-slot:activator="{ props }">
                             <v-list-item v-bind="props" link prepend-icon="user-plus">
                                 <v-list-item-title>
@@ -27,8 +29,11 @@ const items = [
                             </v-list-item>
                         </template>
                         <v-list>
-                            <v-list-item :prepend-icon="item.icon" link :to="'/' + item.link" v-for="(item, index) in items" :key="index" :value="index">
-                                <v-list-item-title><ParagraphText>{{ item.title }}</ParagraphText></v-list-item-title>
+                            <v-list-item :prepend-icon="item.icon" link :to="'/' + item.link" v-for="(item, index) in items"
+                                :key="index" :value="index">
+                                <v-list-item-title>
+                                    <ParagraphText>{{ item.title }}</ParagraphText>
+                                </v-list-item-title>
                             </v-list-item>
                         </v-list>
 
