@@ -7,8 +7,6 @@ import NotFoundView from "@/views/NotFoundView.vue";
 import MainLayout from "@/layouts/MainLayout.vue";
 import RequestClassView from "@/views/main/RequestClassView.vue";
 import RequestNewSubjectView from "@/views/main/RequestNewSubjectView.vue";
-import RegisterLearnerView from "@/views/auth/RegisterLearnerView.vue";
-import RegisterTutorView from "@/views/auth/RegisterTutorView.vue";
 import PetListView from "@/views/main/PetListView.vue";
 import PetDetailView from "@/views/main/PetDetailView.vue";
 import QuickFindView from "@/views/main/QuickFindView.vue";
@@ -63,17 +61,7 @@ const router = createRouter({
           path: "request-subject",
           name: "request-subject",
           component: RequestNewSubjectView,
-        },
-        {
-          path: "register-learner",
-          name: "register-learner",
-          component: RegisterLearnerView,
-        },
-        {
-          path: "register-tutor",
-          name: "register-tutor",
-          component: RegisterTutorView,
-        },
+        }
       ],
     },
     { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundView },

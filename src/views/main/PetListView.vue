@@ -18,8 +18,8 @@ const rowColPair = computed(() => {
             <label class="text-h4 font-weight-bold">Chó Berger</label>
         </v-col>
 
-        <v-row v-for="n in rowColPair.count">
-            <v-col class="text-center" v-for="n in rowColPair.count" :cols="rowColPair.colLength">
+        <v-row v-for="n in rowColPair!.count">
+            <v-col class="text-center" v-for="n in rowColPair!.count" :cols="rowColPair!.colLength">
                 <router-link to ="pet-detail">
                     <img width="300" class="rounded-xl pa-4" src="https://cdn.britannica.com/79/232779-050-6B0411D7/German-Shepherd-dog-Alsatian.jpg"/>
                     <p class="text-h5 font-weight-bold text-red">Chó Berger</p>
