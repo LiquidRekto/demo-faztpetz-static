@@ -2,6 +2,7 @@
 import { useI18n } from 'vue-i18n';
 import ParagraphText from '@/components/text/ParagraphText.vue'
 import UppercaseText from '@/components/text/UppercaseText.vue'
+import Header from '@/components/common/Header.vue'
 
 const { t } = useI18n()
 
@@ -13,6 +14,7 @@ const items = [
 <template>
     <v-container style="min-height: 100vh" fluid class="d-flex flex-column pa-0">
         <header>
+            <!--
             <v-row class="pa-4 bg-yellow justify-space-between">
                 <v-col class="d-flex align-center justify-center" sm="12" md="4" lg="2" cols="12">
                     <img width="150" src="@/assets/images/logotest.png"/>
@@ -49,6 +51,8 @@ const items = [
 
                 </v-col>
             </v-row>
+            -->
+            <Header/>
         </header>
 
         <!-- Header -->
