@@ -5,7 +5,9 @@ const { t } = useI18n()
 </script>
 <template>
     <v-container>
-        <v-row class="pa-4">
+        <v-row class="d-flex justify-center">
+            <v-col cols="6">
+                <v-row class="pa-4">
             <v-col>
                 <label class="text-h4 font-weight-bold">Giỏ hàng</label>
             </v-col>
@@ -20,5 +22,8 @@ const { t } = useI18n()
                 <v-btn size="large" class="bg-orange text-white">Thanh toán</v-btn>
             </v-col>
         </v-row>
+            </v-col>
+        </v-row>
+        
     </v-container>
 </template>

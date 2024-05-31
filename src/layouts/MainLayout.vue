@@ -67,12 +67,19 @@ const items = [
         <!-- Footer -->
         <footer>
             <v-row class="pa-4 mt-4 bg-orange justify-space-between">
-                <v-col sm="12" md="4" lg="2" cols="12">
+                <v-col sm="12" md="4" cols="12">
 
                 </v-col>
-                <v-col sm="12" md="4" lg="2" cols="12">
-                    <ParagraphText>{{ t('common.contactInfo') }}</ParagraphText>
-                    <v-list-item link prepend-icon="envelope">
+                <v-col sm="12" md="4" cols="12" class="d-flex justify-center align-end">
+                    <label>2024, FaztPetz Team</label>
+                </v-col>
+                <v-col sm="12" md="4" cols="12">
+                    <v-row>
+                        <v-col cols="12" class="d-flex justify-end">
+                            <ParagraphText>{{ t('common.contactInfo') }}</ParagraphText>
+                        </v-col>
+                        <v-col cols="12" class="d-flex justify-end">
+                            <v-list-item link prepend-icon="envelope">
                         <v-list-item-title>
                             <ParagraphText>
                                 {{ t('common.email') }}
@@ -86,6 +93,8 @@ const items = [
                             </ParagraphText>
                         </v-list-item-title>
                     </v-list-item>
+                        </v-col>
+                    </v-row>
                 </v-col>
             </v-row>
         </footer>
