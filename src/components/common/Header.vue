@@ -29,11 +29,18 @@ const drawer = ref(false)
         <v-list-item link title="Liên hệ"></v-list-item>
     </v-navigation-drawer>
     </div>
-    <div class="d-none d-md-block">
+    <div class="d-none d-md-block pt-4">
     <v-row class="px-4 bg-white justify-center">
-        <v-col class="d-flex align-center justify-center" sm="12" md="4" lg="2" cols="12">
+        <v-col class="d-flex align-center justify-center" cols="4">
+        </v-col>
+        <v-col class="d-flex align-center justify-center" cols="4">
             <router-link to="home">
                 <img width="150" src="@/assets/images/logotest.png"/>
+            </router-link>
+        </v-col>
+        <v-col class="d-flex align-center justify-end" cols="4">
+            <router-link to="checkout">
+                <v-icon color="black">fa-solid fa-cart-shopping</v-icon>
             </router-link>
         </v-col>
     </v-row>
