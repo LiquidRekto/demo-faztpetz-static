@@ -1,6 +1,6 @@
 import AuthLayout from "@/layouts/AuthLayout.vue";
 import LoginView from "@/views/auth/LoginView.vue";
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
 import { authGuard } from "./auth.guard";
 import HomeView from "@/views/main/HomeView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
@@ -13,7 +13,7 @@ import QuickFindView from "@/views/main/QuickFindView.vue";
 import CartCheckoutView from "@/views/main/CartCheckoutView.vue";
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL ?? '/demo-faztpetz-static/'),
   routes: [
     {
       path: "/auth",
@@ -30,7 +30,7 @@ const router = createRouter({
       path: "",
       //beforeEnter: authGuard,
       component: MainLayout,
-      redirect: "home",
+      redirect: "/home",
       children: [
         {
           path: "home",
