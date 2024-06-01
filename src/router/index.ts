@@ -11,6 +11,7 @@ import PetListView from "@/views/main/PetListView.vue";
 import PetDetailView from "@/views/main/PetDetailView.vue";
 import QuickFindView from "@/views/main/QuickFindView.vue";
 import CartCheckoutView from "@/views/main/CartCheckoutView.vue";
+import QuickFindResultView from "@/views/main/QuickFindResultView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,6 +44,11 @@ const router = createRouter({
           component: QuickFindView,
         },
         {
+          path: "quick-find-result",
+          name: "quick-find-result",
+          component: QuickFindResultView,
+        },
+        {
           path: "checkout",
           name: "checkout",
           component: CartCheckoutView,
@@ -61,7 +67,7 @@ const router = createRouter({
           path: "request-subject",
           name: "request-subject",
           component: RequestNewSubjectView,
-        }
+        },
       ],
     },
     { path: "/:pathMatch(.*)*", name: "NotFound", component: NotFoundView },
