@@ -12,6 +12,9 @@ import PetDetailView from "@/views/main/PetDetailView.vue";
 import QuickFindView from "@/views/main/QuickFindView.vue";
 import CartCheckoutView from "@/views/main/CartCheckoutView.vue";
 import QuickFindResultView from "@/views/main/QuickFindResultView.vue";
+import AboutUsView from "@/views/main/AboutUsView.vue";
+import ContactView from "@/views/main/ContactView.vue";
+import CatPetListView from "@/views/main/CatPetListView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -57,6 +60,26 @@ const router = createRouter({
           path: "pet-list",
           name: "pet-list",
           component: PetListView,
+        },
+        {
+          path: "about-us",
+          name: "about-us",
+          component: AboutUsView,
+        },
+        {
+          path: "contacts",
+          name: "contacts",
+          component: ContactView,
+        },
+        {
+          path: "pet-list",
+          name: "pet-list",
+          component: PetListView,
+        },
+        {
+          path: "pet-list/cat",
+          name: "pet-list/cat",
+          component: CatPetListView,
         },
         {
           path: "pet-detail",
