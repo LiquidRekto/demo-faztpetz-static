@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
+import { CommonUtils } from '@/utils/common.utils';
 
 const { t } = useI18n()
+
+const addCart = () => {
+    CommonUtils.addToCart({id: 1, name: "Hi", count: 2})
+}
 </script>
 <template>
     <v-container>
@@ -18,7 +23,7 @@ const { t } = useI18n()
                         <p class="text-h5 font-weight-bold text-gray">Đơn giá: <span class="text-red">3.000.000đ</span></p>
                     </v-col>
                     <v-col cols="12">
-                        <v-btn size="large" class="bg-orange text-white">Mua ngay!</v-btn>
+                        <v-btn @click="addCart" size="large" class="bg-orange text-white">Mua ngay!</v-btn>
                     </v-col>
                 </v-row>
             </v-col>
