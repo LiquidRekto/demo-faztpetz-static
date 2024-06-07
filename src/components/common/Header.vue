@@ -45,7 +45,7 @@ const numInCart = ref<number>(cartArray.value.length ?? 0)
             </router-link>
         </v-col>
         <v-col class="d-flex align-center justify-end" cols="4">
-            <router-link to="checkout">
+            <router-link to="/checkout">
                 <v-badge v-if="numInCart > 0" color="error" :content="numInCart" location="top start">
                     <v-icon color="black">fa-solid fa-cart-shopping</v-icon>
                 </v-badge>
