@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { useI18n } from "vue-i18n";
 import ConfirmDialog from "../components/common/ConfirmDialog.vue";
+
 const { t } = useI18n();
 const props = defineProps<{
   activator?: string;
@@ -13,13 +14,10 @@ const isActive = ref(false);
 <template>
   <ConfirmDialog
     :activator="props.activator"
-    title="Lọc kết quả"
-    confrim-btn-text="Lọc"
-    cancel-btn-text="Huỷ"
+    title="Thông tin thanh toán"
+    confrim-btn-text="Xác nhận"
+    cancel-btn-text="Huỷ bỏ"
   >
-    <div>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-    </div>
+    <div>Đây là Dialog</div>
   </ConfirmDialog>
 </template>

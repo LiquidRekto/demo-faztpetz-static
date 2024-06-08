@@ -21,13 +21,13 @@ const rowColPair = computed(() => {
         <label class="text-h4 font-weight-bold">Chó Cảnh</label>
       </v-col>
       <v-col class="d-flex justify-end" sm="12" md="4" lg="3" cols="12">
-        <v-btn color="primary" size="x-small" icon="">
+        <v-btn class="mx-4" color="primary" size="x-small" icon="">
             <v-icon>fa-solid fa-filter</v-icon>
             <FilterDialog
                 activator="parent"
             />
         </v-btn>
-        <v-text-field append-inner-icon="search" rounded variant="outlined" class="shrink"></v-text-field>
+        <v-text-field :hide-details="true" append-inner-icon="search" rounded variant="outlined" class="shrink"></v-text-field>
       </v-col>
     </v-row>
     <v-row>
